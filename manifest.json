@@ -1,7 +1,7 @@
 {
   "name": "হিসাব ট্র্যাকার PRO",
   "short_name": "হিসাব",
-  "start_url": "/",
+  "start_url": "/hisabtrackerPRO/",
   "display": "standalone",
   "background_color": "#0b0e16",
   "theme_color": "#141929",
