@@ -726,7 +726,7 @@ sb.auth.onAuthStateChange(async(event,session)=>{
         document.getElementById('auth-screen').style.display='none';
         const email=CUR_USER.email||'';
         document.getElementById('drw-av').textContent=email.charAt(0).toUpperCase();
-        document.getElementById('drw-name').textContent=email.split('@')[0];
+        document.getElementById('drw-name').textContent='DEV: profess0r.null';
         document.getElementById('drw-email').textContent=email;
         await checkPin();
     }
