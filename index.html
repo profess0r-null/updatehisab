@@ -248,8 +248,7 @@ input:focus{border-color:var(--primary);}
 /* toast */
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);padding:10px 18px;border-radius:999px;border:1px solid var(--border);transition:.35s;z-index:9999;font-weight:600;font-size:13px;white-space:nowrap;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.25);}
 .toast.on{transform:translateX(-50%) translateY(0);}
-.toast-inner{display:flex;align-items:center;gap:12px;}
-.toast-divider{width:1px;height:14px;background:var(--border);}
+</style>
 </head>
 <body>
 
@@ -568,7 +567,7 @@ input:focus{border-color:var(--primary);}
   </div>
 </div></div>
 
-<div class="toast" id="toast"><div class="toast-inner"><span id="toast-msg"></span></div></div>
+<div class="toast" id="toast"></div>
 
 <script>
 const SB_URL='https://hmqckyecenigcjikfjob.supabase.co';
@@ -902,22 +901,13 @@ function countUp(el,target,pre=''){
 // ── UI ──
 function toast(msg){
   const t=document.getElementById('toast');
-  const m=document.getElementById('toast-msg');
   const p=document.getElementById('sync-pill');
-  m.textContent=msg;
+  t.textContent=msg;
   t.classList.add('on');
-  // sync pill যদি visible থাকে তাহলে লুকাও
-  if(p.classList.contains('show')){
-    p.style.opacity='0';
-    p.style.transform='translateY(12px)';
-  }
+  if(p.classList.contains('show')){p.style.opacity='0';p.style.transform='translateY(12px)';}
   setTimeout(()=>{
     t.classList.remove('on');
-    // toast শেষে sync pill আবার দেখাও যদি active থাকে
-    if(p.classList.contains('show')){
-      p.style.opacity='1';
-      p.style.transform='translateY(0)';
-    }
+    if(p.classList.contains('show')){p.style.opacity='1';p.style.transform='translateY(0)';}
   },3000);
 }
 function cm(id){document.getElementById(id).classList.remove('on');}
