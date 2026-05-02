@@ -93,7 +93,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Hind Siliguri',
 .logo-sub{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;line-height:1;margin-top:1px;}
 
 /* cash mode header */
-.logo-main.cash-mode{background:var(--cash-grad);-webkit-background-clip:text;background-clip:text;}
+.logo-main.cash-mode{background:linear-gradient(135deg,#4ade80,#10b981);-webkit-background-clip:text;background-clip:text;}
 
 .hdr-right{display:flex;align-items:center;gap:10px;}
 .hamburger{width:38px;height:38px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:10px;padding:8px;-webkit-tap-highlight-color:transparent;}
@@ -103,7 +103,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Hind Siliguri',
 /* mode badge in header */
 .mode-badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;}
 .mode-badge.hisab{background:rgba(56,189,248,.15);color:var(--primary);border:1px solid rgba(56,189,248,.3);}
-.mode-badge.cash{background:rgba(245,158,11,.15);color:var(--yellow);border:1px solid rgba(245,158,11,.3);}
+.mode-badge.cash{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3);}
 
 /* ─── SYNC ─── */
 .sync-bar{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:400;pointer-events:none;}
@@ -172,8 +172,9 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Hind Siliguri',
 .sc{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:18px 16px;text-align:center;box-shadow:var(--shadow);transition:transform .15s;}
 .sc:active{transform:scale(.98);}
 .sc-net{background:var(--surface);border:2px solid var(--border);border-radius:20px;padding:16px 22px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;transition:border-color .3s,background .3s;}
-.sc-net.pos{border-color:var(--green);background:var(--green-bg);}
-.sc-net.neg{border-color:var(--red);background:var(--red-bg);}
+.sc-net.pos{border-color:rgba(16,185,129,.5);background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(16,185,129,.04));}
+.sc-net.neg{border-color:rgba(239,68,68,.5);background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(239,68,68,.04));}
+.sc-net.zero{border-color:rgba(99,102,241,.4);background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(99,102,241,.04));}
 .sc-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
 .sc-val{font-size:26px;font-weight:900;}
 .sc-val.g{color:var(--green);}.sc-val.r{color:var(--red);}
@@ -269,11 +270,15 @@ input:focus{border-color:var(--primary);}
 #cash-app{display:none;}
 
 /* Cash balance card */
-.cash-hero{background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(249,115,22,.1));border:2px solid rgba(245,158,11,.3);border-radius:24px;padding:28px 24px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden;}
-.cash-hero::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(245,158,11,.15),transparent 70%);border-radius:50%;}
-.cash-hero-lbl{font-size:11px;font-weight:800;color:var(--yellow);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
-.cash-hero-amt{font-size:48px;font-weight:900;color:var(--yellow);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums;}
-.cash-hero-sub{font-size:12px;color:var(--muted);}
+.cash-hero{background:linear-gradient(135deg,#1a2e1a,#1e3320);border:1.5px solid rgba(16,185,129,.3);border-radius:24px;padding:32px 24px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden;}
+[data-theme="light"] .cash-hero{background:linear-gradient(135deg,#ecfdf5,#d1fae5);}
+.cash-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(16,185,129,.15),transparent 70%);border-radius:50%;}
+.cash-hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(16,185,129,.08),transparent 70%);border-radius:50%;}
+.cash-hero-lbl{font-size:11px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;opacity:.8;}
+.cash-hero-amt{font-size:52px;font-weight:900;color:#4ade80;line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(74,222,128,.2);}
+.cash-hero-sub{font-size:12px;color:rgba(74,222,128,.6);font-weight:500;}
+[data-theme="light"] .cash-hero-amt{color:#059669;}
+[data-theme="light"] .cash-hero-sub{color:#10b981;}
 
 /* cash quick actions */
 .cash-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
@@ -296,18 +301,53 @@ input:focus{border-color:var(--primary);}
 .cash-history-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
 .cash-clear-btn{font-size:11px;font-weight:700;color:var(--red);background:none;border:1px solid rgba(239,68,68,.3);border-radius:6px;padding:3px 8px;cursor:pointer;}
 
-.cash-entry{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;animation:fadeIn .18s ease;}
-.cash-entry-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.cash-entry-icon.plus{background:var(--green-bg);}
-.cash-entry-icon.minus{background:var(--red-bg);}
+.cash-entry{display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;animation:fadeIn .18s ease;}
+.cash-entry-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.cash-entry-icon.plus{background:rgba(16,185,129,.12);}
+.cash-entry-icon.minus{background:rgba(239,68,68,.1);}
 .cash-entry-info{flex:1;min-width:0;}
 .cash-entry-note{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.cash-entry-date{font-size:11px;color:var(--muted);margin-top:1px;}
+.cash-entry-date{font-size:11px;color:var(--muted);margin-top:2px;}
 .cash-entry-amt{font-size:16px;font-weight:800;flex-shrink:0;}
 .cash-entry-amt.plus{color:var(--green);}
 .cash-entry-amt.minus{color:var(--red);}
-.cash-del-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:14px;padding:4px;opacity:.6;-webkit-tap-highlight-color:transparent;}
-.cash-del-btn:active{opacity:1;color:var(--red);}
+.cash-del-btn{background:var(--card);border:1px solid var(--border);cursor:pointer;color:var(--muted);font-size:12px;padding:7px 9px;border-radius:8px;-webkit-tap-highlight-color:transparent;transition:all .15s;flex-shrink:0;}
+.cash-del-btn:active{background:rgba(239,68,68,.1);border-color:var(--red);color:var(--red);}
+
+/* budget bar */
+.budget-bar-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 16px;margin-bottom:16px;}
+.budget-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.budget-bar-lbl{font-size:12px;font-weight:700;color:var(--text2);}
+.budget-bar-pct{font-size:12px;font-weight:800;}
+.budget-bar{height:8px;border-radius:999px;background:var(--border);overflow:hidden;}
+.budget-bar-fill{height:100%;border-radius:999px;transition:width .6s ease;}
+.budget-bar-sub{font-size:11px;color:var(--muted);margin-top:6px;}
+.budget-set-btn{font-size:11px;font-weight:700;color:var(--primary);background:none;border:1px solid rgba(56,189,248,.3);border-radius:6px;padding:3px 8px;cursor:pointer;}
+
+/* category filter */
+.cat-filter{display:flex;gap:7px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.cat-pill{font-size:12px;padding:6px 13px;border-radius:999px;background:var(--card);border:1px solid var(--border);cursor:pointer;font-weight:600;color:var(--text2);white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:all .15s;flex-shrink:0;}
+.cat-pill.on{background:rgba(56,189,248,.1);border-color:var(--primary);color:var(--primary);}
+
+/* slide type selector for hisab */
+.type-slider{display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:4px;margin-bottom:16px;position:relative;}
+.type-slider-track{position:absolute;top:4px;left:4px;width:calc(50% - 4px);height:calc(100% - 8px);border-radius:10px;background:var(--surface);box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform .25s cubic-bezier(.4,0,.2,1);}
+.type-slider-track.right{transform:translateX(100%);}
+.type-slider-opt{flex:1;padding:11px;border:none;background:transparent;font-size:14px;font-weight:700;cursor:pointer;border-radius:10px;position:relative;z-index:1;transition:color .2s;-webkit-tap-highlight-color:transparent;}
+.type-slider-opt.active-r{color:var(--green);}
+.type-slider-opt.active-g{color:var(--red);}
+.type-slider-opt.inactive{color:var(--muted);}
+
+/* settlement suggestion */
+.settle-suggest{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(56,189,248,.06));border:1px solid rgba(99,102,241,.2);border-radius:14px;padding:12px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.settle-icon{font-size:20px;flex-shrink:0;}
+.settle-text{font-size:13px;font-weight:600;flex:1;color:var(--text2);}
+.settle-amt{font-size:14px;font-weight:800;color:var(--primary);flex-shrink:0;}
+
+/* sc tap */
+.sc{cursor:pointer;}
+.sc:active{transform:scale(.97);}
+
 
 /* cash stats row */
 .cash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
@@ -502,12 +542,12 @@ input:focus{border-color:var(--primary);}
 <div id="hisab-content">
 <div class="wrap">
   <div class="summary">
-    <div class="sc">
+    <div class="sc" onclick="sliderSwitch('r')">
       <div class="sc-lbl bn">আমি পাবো</div><div class="sc-lbl en">I Receive</div>
       <div class="sc-val g" id="sv-r">৳০</div>
       <div class="sc-sub" id="sv-r-c"></div>
     </div>
-    <div class="sc">
+    <div class="sc" onclick="sliderSwitch('g')">
       <div class="sc-lbl bn">আমি দেবো</div><div class="sc-lbl en">I Owe</div>
       <div class="sc-val r" id="sv-g">৳০</div>
       <div class="sc-sub" id="sv-g-c"></div>
@@ -529,7 +569,20 @@ input:focus{border-color:var(--primary);}
 
   <div id="top-lists" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:22px;"></div>
 
-  <div class="tabs">
+  <div id="settle-box" style="display:none"></div>
+
+  <!-- Slide type selector -->
+  <div class="type-slider" id="type-slider">
+    <div class="type-slider-track" id="slider-track"></div>
+    <button class="type-slider-opt active-r" id="slider-r" onclick="sliderSwitch('r')">
+      📥 <span class="bn">পাওনা</span><span class="en">Receive</span>
+    </button>
+    <button class="type-slider-opt inactive" id="slider-g" onclick="sliderSwitch('g')">
+      📤 <span class="bn">দেনা</span><span class="en">Payable</span>
+    </button>
+  </div>
+
+  <div class="tabs" style="display:none">
     <button class="tab on" onclick="switchTab('r',event)">📥 <span class="bn">পাওনা</span><span class="en">Receive</span></button>
     <button class="tab" onclick="switchTab('g',event)">📤 <span class="bn">দেনা</span><span class="en">Payable</span></button>
     <button class="tab" onclick="switchTab('a',event)">📋 <span class="bn">সব</span><span class="en">All</span></button>
@@ -588,23 +641,36 @@ input:focus{border-color:var(--primary);}
 
   <!-- Balance hero -->
   <div class="cash-hero">
-    <div class="cash-hero-lbl">💵 নগদ ব্যালেন্স</div>
+    <div class="cash-hero-lbl"><span class="bn">💵 নগদ ব্যালেন্স</span><span class="en">💵 Cash Balance</span></div>
     <div class="cash-hero-amt" id="cash-balance">৳০</div>
-    <div class="cash-hero-sub" id="cash-hero-sub">সর্বশেষ লেনদেন নেই</div>
+    <div class="cash-hero-sub" id="cash-hero-sub"><span class="bn">সর্বশেষ লেনদেন নেই</span><span class="en">No transactions yet</span></div>
+  </div>
+
+  <!-- Budget bar -->
+  <div class="budget-bar-wrap" id="budget-wrap" style="display:none">
+    <div class="budget-bar-top">
+      <span class="budget-bar-lbl"><span class="bn">মাসিক বাজেট</span><span class="en">Monthly Budget</span></span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="budget-bar-pct" id="budget-pct">0%</span>
+        <button class="budget-set-btn" onclick="setBudget()"><span class="bn">পরিবর্তন</span><span class="en">Change</span></button>
+      </div>
+    </div>
+    <div class="budget-bar"><div class="budget-bar-fill" id="budget-fill"></div></div>
+    <div class="budget-bar-sub" id="budget-sub"></div>
   </div>
 
   <!-- Stats row -->
   <div class="cash-stats">
     <div class="cash-stat">
-      <div class="cash-stat-lbl">মোট আয়</div>
+      <div class="cash-stat-lbl"><span class="bn">মোট আয়</span><span class="en">Total In</span></div>
       <div class="cash-stat-val" id="cash-total-in" style="color:var(--green)">৳০</div>
     </div>
     <div class="cash-stat">
-      <div class="cash-stat-lbl">মোট ব্যয়</div>
+      <div class="cash-stat-lbl"><span class="bn">মোট ব্যয়</span><span class="en">Total Out</span></div>
       <div class="cash-stat-val" id="cash-total-out" style="color:var(--red)">৳০</div>
     </div>
     <div class="cash-stat">
-      <div class="cash-stat-lbl">লেনদেন</div>
+      <div class="cash-stat-lbl"><span class="bn">লেনদেন</span><span class="en">Transactions</span></div>
       <div class="cash-stat-val" id="cash-txn-count" style="color:var(--primary)">০</div>
     </div>
   </div>
@@ -612,10 +678,17 @@ input:focus{border-color:var(--primary);}
   <!-- Quick action buttons -->
   <div class="cash-actions">
     <button class="cash-btn cash-btn-add" onclick="openCashForm('add')">
-      ➕ টাকা যোগ
+      ➕ <span class="bn">টাকা যোগ</span><span class="en">Add Money</span>
     </button>
     <button class="cash-btn cash-btn-sub" onclick="openCashForm('sub')">
-      ➖ খরচ করুন
+      ➖ <span class="bn">খরচ করুন</span><span class="en">Expense</span>
+    </button>
+  </div>
+
+  <!-- Set budget button if not set -->
+  <div id="budget-cta" style="text-align:center;margin-bottom:16px;">
+    <button onclick="setBudget()" style="font-size:12px;font-weight:700;color:var(--primary);background:none;border:1px solid rgba(56,189,248,.25);border-radius:8px;padding:6px 14px;cursor:pointer;">
+      📊 <span class="bn">মাসিক বাজেট সেট করুন</span><span class="en">Set Monthly Budget</span>
     </button>
   </div>
 
@@ -623,27 +696,30 @@ input:focus{border-color:var(--primary);}
   <div class="cash-form hidden" id="cash-form">
     <div class="cash-form-title">
       <span id="cash-form-icon">➕</span>
-      <span id="cash-form-title">টাকা যোগ করুন</span>
+      <span id="cash-form-title"><span class="bn">টাকা যোগ করুন</span><span class="en">Add Money</span></span>
     </div>
     <div class="af-row">
       <input id="cash-amt" type="number" inputmode="numeric" placeholder="পরিমাণ / Amount">
       <input id="cash-note" type="text" placeholder="নোট / Note (optional)">
     </div>
-    <div class="qtags" id="cash-qtags">
-      <span class="qtag" onclick="setQ('বেতন','cash-note')">বেতন</span>
-      <span class="qtag" onclick="setQ('Family','cash-note')">Family</span>
-      <span class="qtag" onclick="setQ('বিক্রয়','cash-note')">বিক্রয়</span>
-    </div>
+    <div class="qtags" id="cash-qtags"></div>
     <div style="display:flex;gap:10px;margin-top:4px;">
-      <button class="sbtn sbtn-g" id="cash-submit-btn" onclick="submitCash()" style="flex:2">যোগ করুন ✓</button>
-      <button class="sbtn" onclick="closeCashForm()" style="flex:1;background:var(--card);color:var(--text);border:1px solid var(--border);">বাতিল</button>
+      <button class="sbtn sbtn-g" id="cash-submit-btn" onclick="submitCash()" style="flex:2"><span class="bn">যোগ করুন ✓</span><span class="en">Add ✓</span></button>
+      <button class="sbtn" onclick="closeCashForm()" style="flex:1;background:var(--card);color:var(--text);border:1px solid var(--border);"><span class="bn">বাতিল</span><span class="en">Cancel</span></button>
     </div>
+  </div>
+
+  <!-- Category filter -->
+  <div class="cat-filter" id="cash-cat-filter">
+    <span class="cat-pill on" onclick="filterCash('all',this)"><span class="bn">সব</span><span class="en">All</span></span>
+    <span class="cat-pill" onclick="filterCash('add',this)">⬆️ <span class="bn">আয়</span><span class="en">Income</span></span>
+    <span class="cat-pill" onclick="filterCash('sub',this)">⬇️ <span class="bn">খরচ</span><span class="en">Expense</span></span>
   </div>
 
   <!-- History -->
   <div class="cash-history-header">
-    <span class="cash-history-title">📜 ইতিহাস</span>
-    <button class="cash-clear-btn" onclick="clearCashHistory()">সব মুছুন</button>
+    <span class="cash-history-title"><span class="bn">📜 ইতিহাস</span><span class="en">📜 History</span></span>
+    <button class="cash-clear-btn" onclick="clearCashHistory()"><span class="bn">সব মুছুন</span><span class="en">Clear All</span></button>
   </div>
   <div id="cash-history-list"></div>
 
@@ -729,7 +805,71 @@ let TAB='r',CTX={},SA={r:false,g:false},CUR_USER=null;
 let pTr=0,pTg=0,pNet=0,pinBuf='',pinMode='unlock',pinTmp='';
 let syncTimer=null;
 let APP_MODE=localStorage.getItem('ht_mode')||'hisab'; // 'hisab' or 'cash'
-let cashFormMode='add';
+let CASH_FILTER='all';
+
+// ── SLIDER SWITCH (hisab) ──
+function sliderSwitch(type){
+  TAB=type;
+  const track=document.getElementById('slider-track');
+  const btnR=document.getElementById('slider-r');
+  const btnG=document.getElementById('slider-g');
+  if(type==='r'){
+    track.className='type-slider-track';
+    btnR.className='type-slider-opt active-r';
+    btnG.className='type-slider-opt inactive';
+  } else {
+    track.className='type-slider-track right';
+    btnR.className='type-slider-opt inactive';
+    btnG.className='type-slider-opt active-g';
+  }
+  document.getElementById('sec-r').style.display=type==='r'?'block':'none';
+  document.getElementById('sec-g').style.display=type==='g'?'block':'none';
+}
+
+// ── BUDGET ──
+function setBudget(){
+  const cur=CASH_DB.budget||'';
+  const val=prompt(LANG==='bn'?'মাসিক বাজেট দিন (৳):':'Set monthly budget (৳):',cur);
+  if(val===null)return;
+  const num=parseFloat(val);
+  if(isNaN(num)||num<=0){toast('❌ '+(LANG==='bn'?'সঠিক পরিমাণ দিন':'Enter valid amount'));return;}
+  CASH_DB.budget=num;
+  saveCashData();
+  renderCash();
+  toast('✅ '+(LANG==='bn'?'বাজেট সেট হয়েছে':'Budget set!'));
+}
+
+// ── CASH FILTER ──
+function filterCash(type,el){
+  CASH_FILTER=type;
+  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('on'));
+  el.classList.add('on');
+  renderCash();
+}
+
+// ── SETTLEMENT SUGGESTION ──
+function renderSettlement(){
+  const box=document.getElementById('settle-box');
+  if(!box)return;
+  const totalR=DB.receive.reduce((s,p)=>s+p.remaining,0);
+  const totalG=DB.give.reduce((s,p)=>s+p.remaining,0);
+  if(totalR===0&&totalG===0){box.style.display='none';return;}
+  // find best settlement
+  const topR=[...DB.receive].filter(p=>p.remaining>0).sort((a,b)=>b.remaining-a.remaining)[0];
+  const topG=[...DB.give].filter(p=>p.remaining>0).sort((a,b)=>b.remaining-a.remaining)[0];
+  if(!topR&&!topG){box.style.display='none';return;}
+  let html='';
+  if(topG){
+    html+=`<div class="settle-suggest">
+      <span class="settle-icon">💡</span>
+      <span class="settle-text"><span class="bn">${topG.name} কে দিলে বড় দেনা শেষ হবে</span><span class="en">Pay ${topG.name} to clear biggest debt</span></span>
+      <span class="settle-amt">৳${fmt(topG.remaining)}</span>
+    </div>`;
+  }
+  box.innerHTML=html;
+  box.style.display='block';
+}
+
 
 // init
 document.documentElement.setAttribute('data-lang',LANG);
@@ -1080,31 +1220,29 @@ function openCashForm(mode){
   cashFormMode=mode;
   const form=document.getElementById('cash-form');
   const icon=document.getElementById('cash-form-icon');
-  const title=document.getElementById('cash-form-title');
   const submitBtn=document.getElementById('cash-submit-btn');
   const qtags=document.getElementById('cash-qtags');
   if(mode==='add'){
     icon.textContent='➕';
-    title.textContent='টাকা যোগ করুন';
     submitBtn.className='sbtn sbtn-g';
-    submitBtn.textContent='যোগ করুন ✓';
+    submitBtn.innerHTML='<span class="bn">যোগ করুন ✓</span><span class="en">Add ✓</span>';
+    document.documentElement.setAttribute('data-lang',LANG);
     qtags.innerHTML=`
-      <span class="qtag" onclick="setQ('বেতন','cash-note')">বেতন</span>
-      <span class="qtag" onclick="setQ('Family','cash-note')">Family</span>
-      <span class="qtag" onclick="setQ('বিক্রয়','cash-note')">বিক্রয়</span>
-      <span class="qtag" onclick="setQ('পাওনা উসুল','cash-note')">পাওনা উসুল</span>
+      <span class="qtag" onclick="setQ('বেতন / Salary','cash-note')">💰 <span class="bn">বেতন</span><span class="en">Salary</span></span>
+      <span class="qtag" onclick="setQ('Family','cash-note')">👨‍👩‍👧 Family</span>
+      <span class="qtag" onclick="setQ('বিক্রয় / Sale','cash-note')">🛍️ <span class="bn">বিক্রয়</span><span class="en">Sale</span></span>
+      <span class="qtag" onclick="setQ('পাওনা উসুল / Received','cash-note')">✅ <span class="bn">পাওনা</span><span class="en">Received</span></span>
     `;
   } else {
     icon.textContent='➖';
-    title.textContent='খরচ করুন';
     submitBtn.className='sbtn sbtn-r';
-    submitBtn.textContent='বিয়োগ করুন ✓';
+    submitBtn.innerHTML='<span class="bn">বিয়োগ করুন ✓</span><span class="en">Deduct ✓</span>';
     qtags.innerHTML=`
-      <span class="qtag" onclick="setQ('খাওয়া','cash-note')">খাওয়া</span>
-      <span class="qtag" onclick="setQ('যাতায়াত','cash-note')">যাতায়াত</span>
-      <span class="qtag" onclick="setQ('কেনাকাটা','cash-note')">কেনাকাটা</span>
-      <span class="qtag" onclick="setQ('বিল','cash-note')">বিল</span>
-      <span class="qtag" onclick="setQ('Recharge','cash-note')">Recharge</span>
+      <span class="qtag" onclick="setQ('খাওয়া / Food','cash-note')">🍔 <span class="bn">খাওয়া</span><span class="en">Food</span></span>
+      <span class="qtag" onclick="setQ('যাতায়াত / Transport','cash-note')">🚌 <span class="bn">যাতায়াত</span><span class="en">Transport</span></span>
+      <span class="qtag" onclick="setQ('কেনাকাটা / Shopping','cash-note')">🛒 <span class="bn">কেনাকাটা</span><span class="en">Shopping</span></span>
+      <span class="qtag" onclick="setQ('বিল / Bill','cash-note')">💡 <span class="bn">বিল</span><span class="en">Bill</span></span>
+      <span class="qtag" onclick="setQ('Recharge','cash-note')">📱 Recharge</span>
     `;
   }
   document.getElementById('cash-amt').value='';
@@ -1169,17 +1307,42 @@ function renderCash(){
   const sub=document.getElementById('cash-hero-sub');
   if(hist.length>0){
     const last=hist[0];
-    sub.textContent=(last.type==='add'?'↑ শেষ যোগ: ':'↓ শেষ খরচ: ')+'৳'+fmt(last.amt)+' — '+last.note;
+    const prefix=last.type==='add'?'↑ ':'↓ ';
+    const label=last.type==='add'?(LANG==='bn'?'শেষ যোগ: ':'Last in: '):(LANG==='bn'?'শেষ খরচ: ':'Last out: ');
+    sub.textContent=prefix+label+'৳'+fmt(last.amt)+' — '+last.note;
   } else {
-    sub.textContent='কোনো লেনদেন নেই';
+    sub.innerHTML='<span class="bn">কোনো লেনদেন নেই</span><span class="en" style="display:none">No transactions yet</span>';
   }
+  // budget bar
+  const budget=CASH_DB.budget||0;
+  const budgetWrap=document.getElementById('budget-wrap');
+  const budgetCta=document.getElementById('budget-cta');
+  if(budget>0){
+    budgetWrap.style.display='block';
+    budgetCta.style.display='none';
+    const pct=Math.min(100,Math.round((totalOut/budget)*100));
+    const fill=document.getElementById('budget-fill');
+    fill.style.width=pct+'%';
+    fill.style.background=pct<60?'var(--green)':pct<85?'var(--yellow)':'var(--red)';
+    document.getElementById('budget-pct').textContent=pct+'%';
+    document.getElementById('budget-pct').style.color=pct<60?'var(--green)':pct<85?'var(--yellow)':'var(--red)';
+    const rem=budget-totalOut;
+    document.getElementById('budget-sub').textContent=LANG==='bn'
+      ?(rem>0?`বাকি ৳${fmt(rem)} থেকে ৳${fmt(budget)}`:`বাজেট ৳${fmt(Math.abs(rem))} ছাড়িয়ে গেছে!`)
+      :(rem>0?`৳${fmt(rem)} left of ৳${fmt(budget)}`:`Over budget by ৳${fmt(Math.abs(rem))}!`);
+  } else {
+    budgetWrap.style.display='none';
+    budgetCta.style.display='block';
+  }
+  // filter history
+  const filtered=CASH_FILTER==='all'?hist:hist.filter(h=>h.type===CASH_FILTER);
   // history list
   const list=document.getElementById('cash-history-list');
-  if(hist.length===0){
-    list.innerHTML=`<div class="empty"><div class="empty-i">💵</div><div class="empty-t">কোনো লেনদেন নেই</div><div class="empty-s">উপরের বাটন দিয়ে টাকা যোগ বা খরচ করুন</div></div>`;
+  if(filtered.length===0){
+    list.innerHTML=`<div class="empty"><div class="empty-i">💵</div><div class="empty-t"><span class="bn">${CASH_FILTER==='all'?'কোনো লেনদেন নেই':'কোনো রেকর্ড নেই'}</span><span class="en">${CASH_FILTER==='all'?'No transactions yet':'No records found'}</span></div><div class="empty-s"><span class="bn">উপরের বাটন দিয়ে শুরু করুন</span><span class="en">Use the buttons above to get started</span></div></div>`;
     return;
   }
-  list.innerHTML=hist.map(h=>`
+  list.innerHTML=filtered.map(h=>`
     <div class="cash-entry">
       <div class="cash-entry-icon ${h.type==='add'?'plus':'minus'}">${h.type==='add'?'⬆️':'⬇️'}</div>
       <div class="cash-entry-info">
@@ -1187,7 +1350,7 @@ function renderCash(){
         <div class="cash-entry-date">${fmtD(h.date)}</div>
       </div>
       <div class="cash-entry-amt ${h.type==='add'?'plus':'minus'}">${h.type==='add'?'+':'-'}৳${fmt(h.amt)}</div>
-      <button class="cash-del-btn" onclick="deleteCashEntry(${h.id})">🗑️</button>
+      <button class="cash-del-btn" onclick="deleteCashEntry(${h.id})">🗑</button>
     </div>
   `).join('');
 }
@@ -1397,12 +1560,13 @@ function render(){
   const nv=document.getElementById('sv-n');
   nv.style.color=net>0?'var(--green)':net<0?'var(--red)':'var(--yellow)';
   const nc=document.getElementById('net-card');
-  nc.className='sc-net '+(net>0?'pos':net<0?'neg':'');
+  nc.className='sc-net '+(net>0?'pos':net<0?'neg':'zero');
   const ns=document.getElementById('sv-n-s'),ni=document.getElementById('net-ic');
   if(net>0){ns.textContent=LANG==='bn'?'▲ আপনি পাবেন':'▲ In your favor';ni.textContent='📈';}
   else if(net<0){ns.textContent=LANG==='bn'?'▼ আপনি দেবেন':'▼ You owe more';ni.textContent='📉';}
   else{ns.textContent=LANG==='bn'?'= সমান':'= Balanced';ni.textContent='⚖️';}
   renderTop();
+  renderSettlement();
   const fl=list=>q?list.filter(p=>p.name.toLowerCase().includes(q)):list;
   const sR=fl([...DB.receive]).sort((a,b)=>b.remaining-a.remaining);
   const shR=SA.r?sR:sR.slice(0,3);
